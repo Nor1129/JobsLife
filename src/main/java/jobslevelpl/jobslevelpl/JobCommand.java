@@ -143,6 +143,17 @@ public class JobCommand implements CommandExecutor {
             case "4차도축":
                 return "§c장인 도축";
 
+            case "0차요리":
+                return "§e초보 요리사";
+            case "1차요리":
+                return "§e견습 요리사";
+            case "2차요리":
+                return "§e숙련 요리사";
+            case "3차요리":
+                return "§e전문 요리사";
+            case "4차요리":
+                return "§e장인 요리사";
+
             case "초보자":
                 return "§a초보자";
             default:

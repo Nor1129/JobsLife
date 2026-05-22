@@ -55,13 +55,12 @@ public class JobBookListener implements Listener {
             "§c장인 도축"
     );
 
-
     private final List<String> cookingJobOrder = Arrays.asList(
-            "§c초보 요리사",
-            "§c견습 요리사",
-            "§c숙련 요리사",
-            "§c전문 요리사",
-            "§c장인 요리사"
+            "§e초보 요리사",
+            "§e견습 요리사",
+            "§e숙련 요리사",
+            "§e전문 요리사",
+            "§e장인 요리사"
     );
 
     @EventHandler
