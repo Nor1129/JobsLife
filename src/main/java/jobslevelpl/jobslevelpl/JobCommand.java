@@ -47,7 +47,7 @@ public class JobCommand implements CommandExecutor {
                 if (args.length == 3) {
                     String jobToRemove = getColoredJob(args[2]);
                     if (jobToRemove == null) {
-                        sender.sendMessage("§c§l[!] 유효하지 않은 직업입니다. (0차~4차광부, 0차~4차농부, 0차~4차어부, 0차~4차도축, 초보자)");
+                        sender.sendMessage("§c§l[!] 유효하지 않은 직업입니다. (0차~4차광부, 0차~4차농부, 0차~4차어부, 0차~4차도축, 0차~4차요리, 초보자)");
                         return true;
                     }
 
@@ -82,7 +82,7 @@ public class JobCommand implements CommandExecutor {
             String coloredJob = getColoredJob(job);
 
             if (coloredJob == null) {
-                sender.sendMessage("§c§l[!] " + "유효하지 않은 직업입니다. (0차~4차광부, 0차~4차농부, 0차~4차어부, 0차~4차도축, 초보자)");
+                sender.sendMessage("§c§l[!] " + "유효하지 않은 직업입니다. (0차~4차광부, 0차~4차농부, 0차~4차어부, 0차~4차도축, 0차~4차요리, 초보자)");
                 return true;
             }
 
