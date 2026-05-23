@@ -203,6 +203,7 @@ public class JobBookListener implements Listener {
             player.sendMessage("§c§l[!] 이 직업을 해금하려면 이전 직업을 먼저 해금해야 합니다!");
             return;
         }
+
         if (jobs.contains("§a초보자")) {
             jobs.remove("§a초보자");
         }
@@ -214,7 +215,74 @@ public class JobBookListener implements Listener {
 
         player.sendMessage("§a§l[!] " + job + " §a§l직업이 저장되었습니다!");
 
+        if (job.equals("§e숙련 요리사")) {
+            giveRecipeBook1(player);
+        }
+
+        if (job.equals("§e장인 요리사")) {
+            giveRecipeBook2(player);
+        }
+
         player.getInventory().getItemInMainHand().setAmount(item.getAmount() - 1);
+    }
+
+    private void giveRecipeBook1(Player player) {
+        ItemStack recipeBook = new ItemStack(Material.BOOK, 1);
+        ItemMeta meta = recipeBook.getItemMeta();
+
+        if (meta != null) {
+            // 이름 설정
+            meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&e[ &a뽑기 &e] &f황금 랜덤레시피"));
+
+            List<String> lore = Arrays.asList(
+                    "",
+                    ChatColor.translateAlternateColorCodes('&', "&a&l[!] 우클릭 시 랜덤으로 레시피북이 나옵니다!")
+            );
+            meta.setLore(lore);
+
+            meta.setCustomModelData(31);
+
+            recipeBook.setItemMeta(meta);
+        }
+
+        boolean dropped = false;
+        for (ItemStack drop : player.getInventory().addItem(recipeBook).values()) {
+            player.getWorld().dropItem(player.getLocation(), drop);
+            dropped = true;
+        }
+
+        if (dropped) {
+            player.sendMessage("§c§l[!] §c인벤토리가 가득 차서 보상 아이템이 바닥에 떨어졌습니다!");
+        }
+    }
+
+    private void giveRecipeBook2(Player player) {
+        ItemStack recipeBook = new ItemStack(Material.BOOK, 3);
+        ItemMeta meta = recipeBook.getItemMeta();
+
+        if (meta != null) {
+            meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&e[ &a뽑기 &e] &f황금 랜덤레시피"));
+
+            List<String> lore = Arrays.asList(
+                    "",
+                    ChatColor.translateAlternateColorCodes('&', "&a&l[!] 우클릭 시 랜덤으로 레시피북이 나옵니다!")
+            );
+            meta.setLore(lore);
+
+            meta.setCustomModelData(31);
+
+            recipeBook.setItemMeta(meta);
+        }
+
+        boolean dropped = false;
+        for (ItemStack drop : player.getInventory().addItem(recipeBook).values()) {
+            player.getWorld().dropItem(player.getLocation(), drop);
+            dropped = true;
+        }
+
+        if (dropped) {
+            player.sendMessage("§c§l[!] §c인벤토리가 가득 차서 보상 아이템이 바닥에 떨어졌습니다!");
+        }
     }
 
     private int getRequiredLevel1ForJob(String job) {
